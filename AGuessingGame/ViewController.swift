@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 class ViewController: UIViewController {
     // MARK: Properties
-   let targetNumber = Int.random(in: 1...100)
+    let targetNumber = Int.random(in: 1...100)
+    
     
     @IBOutlet weak var submittedGuess: UITextField!
-    
     // MARK: Initializers
     
     // MARK: Methods (functions) --- behaviours
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         // class 'AVSpeechSynthesizer'
         let synthesizer = AVSpeechSynthesizer()
         
-      
+        
         // Make a string that contains what we want the computer to say
         let message = "I am thinking of a number between 1 and 100. Guess what it is."
         
@@ -38,8 +38,11 @@ class ViewController: UIViewController {
         
         // Speak the message
         synthesizer.speak(utterance)
-        
+        // Report the target number to the console for testing purposes
+        print ("For testing purposes, the random number made was \(targetNumber)")
     }
+    
+    
     // This function will be used to track the guess.
     @IBAction func checkGuess(_ sender: Any) {
         
@@ -49,9 +52,16 @@ class ViewController: UIViewController {
         
         // For testing purposes, what was the guess?
         print ("For testing purposes, the guess made was \(guessNumber)")
-
-
-
+        
+        // Give the appropriate feedback to the user
+        if guessNumber > targetNumber {
+            print ("Guess lower next time")}
+        else if guessNumber < targetNumber {
+            print ("Guess higher next time")
+        } else {
+            print ("You are correct!")
+            
+        }
     }
     
 }
