@@ -94,7 +94,7 @@ class ViewController: UIViewController {
         targetNumber = Int.random(in: 1...100)
         submittedGuess.text = ""
         speak(this: "I'm thinking of another number, guess what it is")
-        print ("For testing purposes, the guess made was \(guessNumber)")
+        print ("For testing purposes, the guess made was \(targetNumber)")
     }
     
 }
