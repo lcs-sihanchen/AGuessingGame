@@ -10,10 +10,13 @@ import UIKit
 import AVFoundation
 class ViewController: UIViewController {
     // MARK: Properties
-    let targetNumber = Int.random(in: 1...100)
+    
+    var targetNumber = Int.random(in: 1...100)
+    
     
     
     @IBOutlet weak var submittedGuess: UITextField!
+    
     // MARK: Initializers
     
     // MARK: Methods (functions) --- behaviours
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         print ("For testing purposes, the random number made was \(targetNumber)")
         
     }
-
+    
     // viewDidLoad runs as soon as the view becomes visible to the user
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,5 +87,14 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func newGame(_ sender: Any) {
+        print("starting a new game")
+        
+        targetNumber = Int.random(in: 1...100)
+        submittedGuess.text = ""
+        speak(this: "I'm thinking of another number, guess what it is")
+        print ("For testing purposes, the guess made was \(guessNumber)")
+    }
+    
 }
-
