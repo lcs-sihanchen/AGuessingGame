@@ -17,7 +17,20 @@ class ViewController: UIViewController {
     // MARK: Initializers
     
     // MARK: Methods (functions) --- behaviours
-    
+    func speak(this feedback:String) {
+        let synthesizer = AVSpeechSynthesizer()
+        
+        // Make an object named 'utterance', which is an instance of the class
+        // AVSpeechUtterance
+        let utterance = AVSpeechUtterance(string: feedback)
+        
+        // Speak the message
+        synthesizer.speak(utterance)
+        // Report the target number to the console for testing purposes
+        print ("For testing purposes, the random number made was \(targetNumber)")
+        
+    }
+
     // viewDidLoad runs as soon as the view becomes visible to the user
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +53,8 @@ class ViewController: UIViewController {
         synthesizer.speak(utterance)
         // Report the target number to the console for testing purposes
         print ("For testing purposes, the random number made was \(targetNumber)")
+        
+        
     }
     
     
@@ -50,16 +65,21 @@ class ViewController: UIViewController {
         let guessText = submittedGuess.text!
         let guessNumber = Int(guessText)!
         
+        
         // For testing purposes, what was the guess?
         print ("For testing purposes, the guess made was \(guessNumber)")
         
         // Give the appropriate feedback to the user
         if guessNumber > targetNumber {
-            print ("Guess lower next time")}
+            print ("Guess lower next time")
+            speak(this: "Guess lower next time")
+        }
         else if guessNumber < targetNumber {
             print ("Guess higher next time")
+            speak(this: "Guess higher next time")
         } else {
             print ("You are correct!")
+            speak(this: "You are correct!")
             
         }
     }
