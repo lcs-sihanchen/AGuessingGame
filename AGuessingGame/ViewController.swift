@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         //obtain the guess value from the text field
         let guessText = submittedGuess.text!
         let guessNumber = Int(guessText)!
-        
+        submittedGuess.text! = ""
         
         // For testing purposes, what was the guess?
         print ("For testing purposes, the guess made was \(guessNumber)")
